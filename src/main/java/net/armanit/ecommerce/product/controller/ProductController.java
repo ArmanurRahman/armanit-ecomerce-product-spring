@@ -35,4 +35,17 @@ public class ProductController {
         return productInterface.findProductById(productId);
     }
 
+    @GetMapping("/getProductByNameAndCategory")
+    public List<Product> getProductByNameAndCategory(@RequestParam(required = true) String name,
+                                                     @RequestParam(required = true) String category) {
+        return productInterface.findProductsByNameLikeAndCategoryLike(name, category);
+    }
+
+    @GetMapping("/getProductByPriceRange")
+    public List<Product> getProductByPriceRange(@RequestParam String category,
+                                                @RequestParam int minPrice,
+                                                @RequestParam int maxPrice) {
+        return productInterface.findProductsByCategoryLikeAndPriceBetween(category, minPrice, maxPrice);
+    }
+
 }
