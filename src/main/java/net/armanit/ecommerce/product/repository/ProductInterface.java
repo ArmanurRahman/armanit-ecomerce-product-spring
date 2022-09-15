@@ -10,4 +10,6 @@ public interface ProductInterface extends MongoRepository<Product, String> {
     public List<Product> findProductsByNameLikeAndCategoryLike(String name, String category);
 
     public List<Product> findProductsByCategoryLikeAndPriceBetween(String category, int minPrice, int maxPrice);
+
+    public void deleteProductById(String productId);
 }

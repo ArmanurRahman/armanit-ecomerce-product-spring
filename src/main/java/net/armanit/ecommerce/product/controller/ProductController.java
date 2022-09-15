@@ -48,4 +48,15 @@ public class ProductController {
         return productInterface.findProductsByCategoryLikeAndPriceBetween(category, minPrice, maxPrice);
     }
 
+
+    @PutMapping("/update/{productId}")
+    public Product updateProduct(@PathVariable String productId, @Valid @RequestBody Product product) {
+        return productInterface.save(product);
+    }
+
+    @DeleteMapping("/delete/{productId}")
+    public void deleteProduct(@PathVariable String productId) {
+        productInterface.deleteProductById(productId);
+    }
+
 }
