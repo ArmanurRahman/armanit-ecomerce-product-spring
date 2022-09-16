@@ -1,4 +1,4 @@
-FROM openjdk:11-slim as build
+FROM --platform=linux/amd64 openjdk:11-slim as build
 MAINTAINER armanit.net
 
 COPY target/product-0.0.1-SNAPSHOT.jar product-0.0.1-SNAPSHOT.jar
